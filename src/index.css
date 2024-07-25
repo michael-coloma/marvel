@@ -1,6 +1,7 @@
 :root {
   --max-width-card: 189px;
   --margin-page: 48px;
+  --border-bottom-width-header: 1px;
 }
 
 

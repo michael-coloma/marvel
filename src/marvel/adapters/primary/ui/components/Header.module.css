@@ -5,6 +5,12 @@
   padding: 16px 48px;
 }
 
+.header--border-color-bottom{
+  border-bottom: var(--border-bottom-width-header) solid #333333;
+  position: relative;
+  z-index: 1;
+}
+
 .header__likes-container {
   display: flex;
   justify-content: end;

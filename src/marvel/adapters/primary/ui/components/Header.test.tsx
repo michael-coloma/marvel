@@ -9,11 +9,12 @@ const renderHeader = (
   countFavorites: number,
   showFavorites: boolean,
   setShowFavorites: jest.Mock,
+  changeColorBorderBottom: boolean = false,
 ) => {
   return render(
     <ShowFavoriteCharactersContext.Provider value={{ showFavorites, setShowFavorites }}>
       <BrowserRouter>
-        <Header isLoading={isLoading} countFavorites={countFavorites} />
+        <Header isLoading={isLoading} countFavorites={countFavorites} changeBorderBottom={changeColorBorderBottom} />
       </BrowserRouter>
     </ShowFavoriteCharactersContext.Provider>,
   );
@@ -56,5 +57,15 @@ describe("Header component", () => {
     fireEvent.click(likesIcon);
 
     expect(setShowFavorites).toHaveBeenCalledWith(true);
+  });
+
+  it("checks that style is added when header has property changeBorderBottom", () => {
+    const setShowFavorites = jest.fn();
+    renderHeader(false, 0, false, setShowFavorites, true);
+
+    const headerDiv = screen.getByRole("roleHeader");
+    expect(headerDiv).toHaveClass("header");
+
+    expect(headerDiv).toHaveClass("header--border-color-bottom");
   });
 });

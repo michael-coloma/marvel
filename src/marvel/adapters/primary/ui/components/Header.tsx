@@ -11,9 +11,10 @@ import * as style from "./Header.module.css";
 interface HeaderProps {
   isLoading: boolean;
   countFavorites: number;
+  changeBorderBottom?: boolean;
 }
 
-const Header = ({ isLoading, countFavorites }: HeaderProps) => {
+const Header = ({ isLoading, countFavorites, changeBorderBottom = false }: HeaderProps) => {
   const navigate = useNavigate();
   const { setShowFavorites } = useContext(ShowFavoriteCharactersContext);
 
@@ -29,7 +30,10 @@ const Header = ({ isLoading, countFavorites }: HeaderProps) => {
 
   return (
     <>
-      <div className={style.header}>
+      <div
+        role='roleHeader'
+        className={`${style.header} ${changeBorderBottom && style["header--border-color-bottom"]}`}
+      >
         <img src={LogoMarvel} alt='Marvel Logo' onClick={() => handleLogoClick()} />
         <div className={style["header__likes-container"]}>
           <img
