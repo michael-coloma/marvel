@@ -6,7 +6,9 @@ module.exports = {
   // The test environment that will be used for testing
   testEnvironment: "jsdom",
   // Indicates whether the coverage information should be collected while executing the test
-  collectCoverage: true,
+  collectCoverage: false,
+  // CPU
+  // maxWorkers: "70%",
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   collectCoverageFrom: [
     "src/**/*.{js,jsx,ts,tsx}", // include
@@ -25,10 +27,18 @@ module.exports = {
   roots: ["<rootDir>/src"],
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   // @see https://stackoverflow.com/questions/39418555/
+  // moduleNameMapper: {
+  //   "\\.(css|scss|less)$": "identity-obj-proxy",
+  //   "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+  //     "<rootDir>/mocks/fileMock.tsx",
+  // },
   moduleNameMapper: {
-    "\\.(css|scss|less)$": "identity-obj-proxy",
-    "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-      "<rootDir>/mocks/fileMock.tsx",
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+      "<rootDir>/mocks/fileMock.js",
+    // "^react-lazyload$": "<rootDir>/mocks/react-lazyload.tsx",
+    "\\.(css|less)$": "identity-obj-proxy",
+    "^@assets/(.*)$": "<rootDir>/src/marvel/adapters/primary/ui/assets/$1",
+    "^@components/(.*)$": "<rootDir>/src/marvel/adapters/primary/ui/components/$1",
   },
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
@@ -37,8 +47,7 @@ module.exports = {
   // A map from regular expressions to paths to transformers
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
-    "^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$":
-      "jest-transform-stub",
+    "^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
   },
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // explicit problem with
