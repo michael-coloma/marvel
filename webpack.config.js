@@ -34,6 +34,13 @@ module.exports = (env, argv) => {
           test: /\.module\.css$/,
           use: [
             isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
+            // {
+            //   loader: "css-modules-typescript-loader",
+            //   options: {
+            //     // mode: process.env.CI ? 'verify' : 'emit',
+            //     mode: "emit",
+            //   },
+            // },
             {
               loader: "css-loader",
               options: {
