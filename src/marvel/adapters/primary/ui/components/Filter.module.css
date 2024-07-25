@@ -1,0 +1,66 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
+  width: 100%;
+  margin-bottom: 62px;
+  position: relative;
+}
+
+.filter__top {
+  display: flex;
+  border-bottom: 1px solid black;
+  width: 100%;
+
+}
+
+.filter__icon {
+  width: 12px;
+}
+
+.filter__sarch {
+  margin-left: 8px;
+  height: 27px;
+  border: none;
+  flex: 1;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.75px;
+  color: black;
+}
+
+.filter__search::placeholder {
+  color: #AAAAAA;
+  opacity: 1;
+}
+
+/* Placeholder styles for WebKit browsers */
+.filter__search::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+
+/* Placeholder styles for Mozilla Firefox */
+.filter__search:-moz-placeholder {
+  color: #AAAAAA;
+}
+
+/* Placeholder styles for Internet Explorer 10-11 */
+.filter__search:-ms-input-placeholder {
+  color: #AAAAAA;
+}
+
+.filter__sarch:hover,
+.filter__sarch:focus,
+.filter__sarch:active {
+  outline: none;
+  text-decoration: none;
+}
+
+.filter__result-count {
+  position: absolute;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.06px;
+  top: 42px;
+}

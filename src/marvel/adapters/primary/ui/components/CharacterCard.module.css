@@ -1,0 +1,101 @@
+.card {
+  background-color: #000;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  box-sizing: border-box;
+  max-width: var(--max-width-card);
+  max-height: 246px;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+
+
+@media (max-width: 767px) {
+  .card {
+    /* max-width: 172px; */
+    max-width: var(--max-width-card);
+  }
+}
+
+
+.card__image-lazy {
+  max-width: var(--max-width-card);
+  height: 189px;
+}
+
+.card__image {
+  width: 100%;
+  height: 190px;
+  max-height: 190px;
+  object-fit: cover;
+  object-position: top;
+  overflow: hidden;
+}
+
+.card__details {
+  display: flex;
+  height: 56px;
+  max-height: 56px;
+}
+
+.card__details::before {
+  content: "";
+  position: absolute;
+  top: 190px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: red;
+  height: 5.38px;
+  z-index: 0;
+  transition: height 0.6s ease;
+}
+
+.card__details:hover::before {
+  height: 100%;
+  transition: height 0.6s ease;
+}
+
+.card__name {
+  margin-top: 16px;
+  margin-left: 16px;
+  margin-bottom: 24px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.41px;
+  text-align: left;
+  max-width: 108px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.card__like {
+  position: absolute;
+  margin-top: 16px;
+  right: 16px;
+  cursor: pointer;
+}
+
+.card__like--deselected {
+  content: url('src/marvel/adapters/primary/ui/assets/IconHearthNotLikes.svg');
+}
+
+.card__like--selected {
+  content: url('src/marvel/adapters/primary/ui/assets/IconHearthLikes.svg');
+
+}
+
+.card__details:hover .card__like--deselected {
+  z-index: 1;
+  content: url('src/marvel/adapters/primary/ui/assets/IconHearthNotLikes.svg');
+}
+
+.card__details:hover .card__like--selected {
+  content: url('src/marvel/adapters/primary/ui/assets/IconHearthWhite.svg');
+  z-index: 1;
+}
