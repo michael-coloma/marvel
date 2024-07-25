@@ -19,4 +19,13 @@ export class MarvelAdapter implements IMarvelApi {
       return [];
     }
   }
+
+  async fetchCharacterDetails(characterId: string): Promise<CharacterDetails> {
+    return new Promise((resolve, _reject) => {
+      resolve({
+        character: { id: 1, name: "name", imageUrl: "", description: "" },
+        comics: [],
+      });
+    });
+  }
 }
