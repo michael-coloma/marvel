@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "paths": {
       // "src/*": ["src/*"],
       "@assets/*": ["src/marvel/adapters/primary/ui/assets/*"],
