@@ -1,3 +1,5 @@
+import { CharacterDetails } from "src/marvel/core/domain/entities/characterDetails";
+import { ApiCharacterDetails } from "../mappers/characterDetailsReponseMapper";
 import { MarvelAdapter } from "./MarvelAdapter";
 
 describe("CharacterAdapter", () => {
@@ -30,5 +32,33 @@ describe("CharacterAdapter", () => {
     expect(podcasts).toHaveLength(1);
     expect(podcasts[0].id).toBe(1234);
     expect(podcasts[0].name).toBe("3-D Man");
+  });
+
+  it("fetches chracter details with adapter successfully", async () => {
+    const CHARACTER_ID = 1234;
+    const mockResponseApiClient: ApiCharacterDetails = {
+      id: CHARACTER_ID,
+      name: "Abomination (Ultimate)",
+      description: "description about spiderman",
+      thumbnail: { extension: "jpg", path: "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" },
+      comics: {
+        available: 2,
+        collectionURI: "http://gateway.marvel.com/v1/public/characters/1016823/comics",
+        items: [{ resourceURI: "http://gateway.marvel.com/v1/public/comics/40638", name: "Hulk (2008) #50" }],
+      },
+    };
+
+    jest.spyOn(adapter["apiClient"], "fetchCharacterDetails").mockResolvedValue(mockResponseApiClient);
+
+    const characterDetails: CharacterDetails = await adapter.fetchCharacterDetails(CHARACTER_ID.toString());
+
+    expect(characterDetails).toMatchObject({
+      character: {
+        id: CHARACTER_ID,
+        name: "Abomination (Ultimate)",
+        description: "description about spiderman",
+      },
+      comics: [],
+    });
   });
 });

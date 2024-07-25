@@ -2,9 +2,8 @@ import { Character } from "../../../core/domain/entities/character";
 import { CharacterDetails } from "../../../core/domain/entities/characterDetails";
 import { IMarvelApi } from "../../../core/domain/ports/MarvelApiPort";
 import { MarvelApiClient } from "../clients/MarvelApiClient";
-import { mapCharacterDetailsResponse } from "../mappers/characterDetailsReponseMapper";
-
 import { mapCharactersResponse } from "../mappers/characterResponseMapper";
+import { mapCharacterDetailsResponse } from "src/marvel/infrastructure/api/mappers/characterDetailsReponseMapper";
 
 export class MarvelAdapter implements IMarvelApi {
   private apiClient = new MarvelApiClient();
@@ -21,11 +20,8 @@ export class MarvelAdapter implements IMarvelApi {
   }
 
   async fetchCharacterDetails(characterId: string): Promise<CharacterDetails> {
-    return new Promise((resolve, _reject) => {
-      resolve({
-        character: { id: 1, name: "name", imageUrl: "", description: "" },
-        comics: [],
-      });
-    });
+    const responseApiCharacterDetails = await this.apiClient.fetchCharacterDetails(characterId);
+
+    return mapCharacterDetailsResponse(responseApiCharacterDetails);
   }
 }
