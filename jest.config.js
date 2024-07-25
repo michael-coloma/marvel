@@ -36,6 +36,8 @@ module.exports = {
     "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
       "<rootDir>/mocks/fileMock.js",
     // "^react-lazyload$": "<rootDir>/mocks/react-lazyload.tsx",
+    // "\\.module\\.(css|less|scss)$": "identity-obj-proxy",
+    "\\.module\\.(css|less|scss)$": "<rootDir>/mocks/styleMock.js",
     "\\.(css|less)$": "identity-obj-proxy",
     "^@assets/(.*)$": "<rootDir>/src/marvel/adapters/primary/ui/assets/$1",
     "^@components/(.*)$": "<rootDir>/src/marvel/adapters/primary/ui/components/$1",
