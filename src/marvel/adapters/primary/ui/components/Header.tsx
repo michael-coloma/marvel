@@ -1,7 +1,7 @@
 import React, { useCallback, useContext } from "react";
 import LogoMarvel from "@assets/LogoMarvel.svg";
 import { useNavigate } from "react-router-dom";
-import IconLikes from "@assets/IconHearth.svg";
+import IconLikes from "@assets/IconBigHearthLike.svg";
 import { ShowFavoriteCharactersContext } from "src/marvel/adapters/secondary/context/ShowFavoritesCharacterContext";
 import Loader from "./Loader";
 import { ROUTES_PATH } from "src/marvel/config/routes/routes";
