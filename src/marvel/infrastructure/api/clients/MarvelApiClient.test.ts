@@ -3,7 +3,7 @@ import MockAdapter from "axios-mock-adapter";
 import { MarvelApiClient } from "./MarvelApiClient";
 import { generateMarvelApiUrl } from "../../utils/marvelApiUtils";
 
-const mockCharactersResponseApi = {
+const responseMockApiCharacters = {
   code: 200,
   status: "Ok",
   data: {
@@ -48,12 +48,14 @@ describe("PodcastsApiClient", () => {
         params: { limit: client.LIMIT_FETCH_CHARACTERS },
         isTest: true,
       });
+
+      mockAxios.onGet(url).reply(200, responseMockApiCharacters);
       const responseExpected = await client.fetchTopCharacters();
 
       expect(mockAxios.history.get.length).toBe(1);
       expect(mockAxios.history.get[0].url).toBe(url);
-      expect(responseExpected.length).toEqual(mockCharactersResponseApi.data.results.length);
-      expect(responseExpected[0]).toEqual(mockCharactersResponseApi.data.results[0]);
+      expect(responseExpected.length).toEqual(responseMockApiCharacters.data.results.length);
+      expect(responseExpected[0]).toEqual(responseMockApiCharacters.data.results[0]);
     });
 
     it("should throw an error when fetching top characters fails", async () => {

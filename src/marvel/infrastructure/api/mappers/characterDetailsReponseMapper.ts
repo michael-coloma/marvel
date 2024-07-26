@@ -1,22 +1,20 @@
 import { REPLACE_SIZE_IMAGE } from "src/marvel/adapters/primary/types/constants";
 import { CharacterDetails } from "src/marvel/core/domain/entities/characterDetails";
+import { Comics } from "src/marvel/core/domain/entities/comics";
+import { ApiCharacterDetails, ApiComics } from "src/marvel/infrastructure/api/clients/MarvelApiClient";
 
-export interface ApiComics {
-  available: number;
-  collectionURI: string;
-  items: {
-    resourceURI: string; // http://gateway.marvel.com/v1/public/comics/21366
-    name: string; // Avengers: The Initiative (2007) #14
-  }[];
-}
-export interface ApiCharacterDetails {
-  id: number;
-  name: string;
-  description: string;
-  thumbnail: { path: string; extension: string };
-  comics: ApiComics;
-}
-export const mapCharacterDetailsResponse = (apiCharacterDetails: ApiCharacterDetails): CharacterDetails => {
+export const mapCharacterDetailsResponse = (
+  apiCharacterDetails: ApiCharacterDetails,
+  apiCharacterDetailsComics: ApiComics[],
+): CharacterDetails => {
+  const getComics = (): Comics[] =>
+    apiCharacterDetailsComics.map(({ id, thumbnail, title, dates }) => ({
+      id,
+      title,
+      imageUrl: `${thumbnail.path}/${REPLACE_SIZE_IMAGE}.${thumbnail.extension}`,
+      dates: dates.map((dates) => ({ ...dates, dateDate: new Date(dates.date || "") })),
+    }));
+
   return {
     character: {
       id: apiCharacterDetails.id,
@@ -24,6 +22,6 @@ export const mapCharacterDetailsResponse = (apiCharacterDetails: ApiCharacterDet
       imageUrl: `${apiCharacterDetails.thumbnail.path}/${REPLACE_SIZE_IMAGE}.${apiCharacterDetails.thumbnail.extension}`,
       description: apiCharacterDetails.description,
     },
-    comics: [],
+    comics: getComics(),
   };
 };

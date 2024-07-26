@@ -21,7 +21,10 @@ export class MarvelAdapter implements IMarvelApi {
 
   async fetchCharacterDetails(characterId: string): Promise<CharacterDetails> {
     const responseApiCharacterDetails = await this.apiClient.fetchCharacterDetails(characterId);
+    const resposeApiComics = await this.apiClient.fetchCharacterDetailsComics(
+      responseApiCharacterDetails.comics.collectionURI,
+    );
 
-    return mapCharacterDetailsResponse(responseApiCharacterDetails);
+    return mapCharacterDetailsResponse(responseApiCharacterDetails, resposeApiComics);
   }
 }

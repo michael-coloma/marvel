@@ -1,5 +1,11 @@
+export interface DatesComics {
+  type: "onsaleDate" | "focDate" | "unlimitedDate" | "digitalPurchaseDate";
+  date: string;
+  dateDate?: Date;
+}
 export interface Comics {
   id: number;
-  urlImage: string;
-  name: string;
+  imageUrl: string;
+  title: string;
+  dates: DatesComics[];
 }
