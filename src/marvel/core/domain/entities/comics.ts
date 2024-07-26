@@ -1,7 +1,13 @@
+export enum DATE_TYPE_COMIC {
+  ONSALE_DATE = "onsaleDate",
+  FOC_DATE = "focDate",
+  UNLIMITED_DATE = "unlimitedDate",
+  DIGITAL_PURCHASE_DATE = "digitalPurchaseDate",
+}
+
 export interface DatesComics {
-  type: "onsaleDate" | "focDate" | "unlimitedDate" | "digitalPurchaseDate";
+  type: DATE_TYPE_COMIC;
   date: string;
-  dateDate?: Date;
 }
 export interface Comics {
   id: number;

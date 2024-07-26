@@ -4,8 +4,8 @@ import { GetCharacterDetails } from "src/marvel/core/application/usesCases/GetCh
 import { MarvelAdapter } from "src/marvel/infrastructure/api/adapters/MarvelAdapter";
 
 export const useGetCharacterDetails = (characterId: string) => {
-  const podcastService = new MarvelAdapter();
-  const getCharacterDetails = new GetCharacterDetails(podcastService);
+  const marvelService = new MarvelAdapter();
+  const getCharacterDetails = new GetCharacterDetails(marvelService);
 
   const {
     data: characterDetails,

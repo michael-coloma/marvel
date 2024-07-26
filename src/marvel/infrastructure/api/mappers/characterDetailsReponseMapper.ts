@@ -12,7 +12,7 @@ export const mapCharacterDetailsResponse = (
       id,
       title,
       imageUrl: `${thumbnail.path}/${REPLACE_SIZE_IMAGE}.${thumbnail.extension}`,
-      dates: dates.map((dates) => ({ ...dates, dateDate: new Date(dates.date || "") })),
+      dates,
     }));
 
   return {
