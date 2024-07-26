@@ -10,7 +10,11 @@ export class MarvelApiClient {
     this.isTest = isTest;
   }
   async fetchTopCharacters(): Promise<ApiResponseCharacters[]> {
-    const url = generateMarvelApiUrl("characters", this.isTest);
+    const url = generateMarvelApiUrl({
+      path: "characters",
+      params: { limit: this.LIMIT_FETCH_CHARACTERS },
+      isTest: this.isTest,
+    });
 
     const response = await axios.get(url).catch((error) => {
       console.error("There is an error with fetchTopCharacters in MarvelApiClient", error);
@@ -21,7 +25,11 @@ export class MarvelApiClient {
   }
 
   async fetchCharacterDetails(characterId: string): Promise<ApiCharacterDetails> {
-    const url = generateMarvelApiUrl(`characters/${characterId}`, this.isTest);
+    const url = generateMarvelApiUrl({
+      path: `characters/${characterId}`,
+      params: { limit: this.LIMIT_FETCH_CHARACTER_DETAILS },
+      isTest: this.isTest,
+    });
     const response = await axios.get(url).catch((error) => {
       console.error("There is an error with fetchCharacterDetails in MarvelApiClient", error);
       throw error;

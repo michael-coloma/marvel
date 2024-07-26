@@ -43,8 +43,11 @@ describe("PodcastsApiClient", () => {
 
   describe("fetchTopCharacters test", () => {
     it("fetches top characteres successfully", async () => {
-      const url = generateMarvelApiUrl("characters", true);
-      mockAxios.onGet(url).reply(200, mockCharactersResponseApi);
+      const url = generateMarvelApiUrl({
+        path: "characters",
+        params: { limit: client.LIMIT_FETCH_CHARACTERS },
+        isTest: true,
+      });
       const responseExpected = await client.fetchTopCharacters();
 
       expect(mockAxios.history.get.length).toBe(1);
@@ -54,7 +57,11 @@ describe("PodcastsApiClient", () => {
     });
 
     it("should throw an error when fetching top characters fails", async () => {
-      const url = generateMarvelApiUrl("characters", true);
+      const url = generateMarvelApiUrl({
+        path: "characters",
+        params: { limit: client.LIMIT_FETCH_CHARACTERS },
+        isTest: true,
+      });
       mockAxios.onGet(url).reply(500, { error: "Internal Server Error" });
       const consoleErrorSpy = jest.spyOn(console, "error").mockImplementation(() => "error");
       await expect(client.fetchTopCharacters()).rejects.toThrowError("Request failed with status code 500");
