@@ -45,7 +45,7 @@ root.render(
         </ShowFavoritesProvider>
       </FavoriteCharactersProvider>
       {/*To debug cache */}
-      <ReactQueryDevtools initialIsOpen={false} />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   </React.StrictMode>,
 );
