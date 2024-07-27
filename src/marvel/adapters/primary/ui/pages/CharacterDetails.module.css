@@ -3,6 +3,7 @@
   background-color: black;
   justify-content: center;
   width: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
 }
 
 .characterDetails__character-container {
