@@ -46,7 +46,6 @@
   color: white;
 }
 
-
 .characterDetails__text-description {
   display: flex;
   margin-top: 24px;
@@ -56,3 +55,10 @@
   line-height: 18.75px;
   text-align: left;
 }
+
+.characterDetails__comics-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;  
+}
+

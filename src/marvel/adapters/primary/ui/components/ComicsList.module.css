@@ -1,0 +1,103 @@
+.comicList {
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+  position: relative;
+  flex-direction: column;
+  /* Prevent text selection */
+  user-select: none;
+}
+
+.comicList___title-section {
+  display: flex;
+  margin-top: 48px;
+  margin-bottom: 24px;
+  min-width: 960px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 37.5px;
+  text-align: left;
+}
+
+.comicList__container {
+  /* Firefox */
+  display: flex;
+  overflow-x: auto;
+  width: 960px;
+  scrollbar-width: none;
+  /* Prevent text selection */
+  user-select: none;
+}
+
+.comicList__container::-webkit-scrollbar {
+  /* Chrome, Safari, and Opera */
+  display: none;
+  /* Prevent text selection */
+  user-select: none;
+}
+
+.comicList__card {
+  min-width: 179.2px;
+  margin-right: 16px;
+}
+
+.comicList__image {
+  width: 179.2px;
+  height: 268.8px;
+  /* Prevent image selection in Safari */
+  -webkit-user-select: none;
+  /* Prevent image selection in Internet Explorer */
+  -ms-user-select: none;
+  /* Prevent image selection in standard-compliant browsers */
+  user-select: none;
+  /* Prevent dragging */
+  pointer-events: none;
+  /* Prevent image drag for Safari */
+  -webkit-user-drag: none;
+}
+
+.comicList__info {
+  margin-right: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.comicList__title {
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18.75px;
+  height: 38px;
+  max-height: 38px;
+  width: 100%;
+}
+
+
+.comicList__year {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.06px;
+
+}
+
+.comicList__scrollBar {
+  display: flex;
+  margin-top: 24px;
+  width: 960px;
+  height: 4px;
+  background-color: #D9D9D9;
+
+}
+
+.comicList__scrollThumb {
+  height: 4px;
+  background-color: #EC1D24;
+  transition: width 0.2s ease-in-out;
+}
