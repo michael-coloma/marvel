@@ -90,10 +90,9 @@
 .comicList__scrollBar {
   display: flex;
   margin-top: 24px;
-  width: 960px;
+  margin-bottom: 48px;
   height: 4px;
   background-color: #D9D9D9;
-
 }
 
 .comicList__scrollThumb {
