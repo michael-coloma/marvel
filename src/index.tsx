@@ -47,7 +47,6 @@ root.render(
       {/*To debug cache */}
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
-    ,
   </React.StrictMode>,
 );
 
