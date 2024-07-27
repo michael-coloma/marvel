@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import reportWebVitals from "./reportWebVitals";
 import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
 import { persistQueryClient } from "@tanstack/react-query-persist-client";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { FavoriteCharactersProvider } from "src/marvel/adapters/secondary/providers/FavoriteCharactersProvider";
 import { ShowFavoritesProvider } from "src/marvel/adapters/secondary/providers/ShowFavoritesCharactersProvider";
 
