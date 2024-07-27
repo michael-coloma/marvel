@@ -6,22 +6,14 @@
   text-align: center;
   position: relative;
   box-sizing: border-box;
-  max-width: var(--max-width-card);
+  max-width: 188.57px;
   max-height: 246px;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
 }
 
 
-@media (max-width: 767px) {
-  .card {
-    /* max-width: 172px; */
-    max-width: var(--max-width-card);
-  }
-}
-
-
 .card__image-lazy {
-  max-width: var(--max-width-card);
+  max-width: 188.57px;
   height: 189px;
 }
 
