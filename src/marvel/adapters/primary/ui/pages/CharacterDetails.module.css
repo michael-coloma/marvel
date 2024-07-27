@@ -1,13 +1,15 @@
-.characterDetails {
+.characterDetails__banner {
   display: flex;
+  background-color: black;
+  justify-content: center;
+  width: 100%;
 }
 
 .characterDetails__character-container {
   display: flex;
   background-color: black;
   justify-content: center;
-  min-width: 960px;
-  flex:1;
+  width: 960px;
 }
 
 .characterDetails__character-image {
@@ -23,22 +25,22 @@
   margin-left: 48px;
   margin-top: 96px;
   width: 592px;
-  min-width: 592px;
 }
 
-.characterDetails__text-icon-container{
+.characterDetails__text-icon-container {
   display: flex;
   align-items: center;
-  width: 592px;
-  min-width: 592px;
+  justify-content: end;
 }
 
-.characterDetails__text-icon-container div{
+.characterDetails__text-icon {
   text-align: right;
-  flex: 1;
+  width: 24px;
+  height: 22px;
 }
 
 .characterDetails__text-name {
+  width: 100%;
   font-size: 40px;
   font-weight: 700;
   line-height: 46.88px;
@@ -59,6 +61,88 @@
 .characterDetails__comics-container {
   display: flex;
   justify-content: center;
-  width: 100%;  
+  width: 100%;
 }
 
+
+@media(max-width: 1920px) {
+  .characterDetails__character-container {
+    width: 960px;
+  }
+
+  .characterDetails__character-image {
+    min-width: 320px;
+    width: 320px;
+    height: 320px;
+  }
+
+  .characterDetails__text-container {
+    display: block;
+    margin-left: 48px;
+    margin-top: 96px;
+    width: 592px;
+  }
+}
+
+@media(max-width: 1024px) {
+  .characterDetails__character-container {
+    min-width: 100%;
+  }
+
+  .characterDetails__character-image {
+    min-width: 270px;
+    width: 270px;
+    height: 270px;
+  }
+
+  .characterDetails__text-container {
+    margin-left: 48px;
+    margin-right: 48px;
+    margin-top: 79px;
+  }
+
+  .characterDetails__comics-container {
+    margin-left: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .characterDetails__character-container {
+    min-width: 100%;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .characterDetails__character-image {
+    width: 100%;
+    height: 397.89px;
+  }
+
+  .characterDetails__text-container {
+    display: block;
+    margin: 0px 0px;
+    width: 100%;
+  }
+
+
+  .characterDetails__text-name {
+    font-size: 32px;
+    line-height: 37.5px;
+  }
+
+  .characterDetails__text-description {
+    margin-top: 0px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 48px;
+  }
+
+  .characterDetails__text-icon-container {
+    margin: 24px 16px;
+  }
+
+  .characterDetails__comics-container {
+    margin-left: 16px;
+  }
+
+}

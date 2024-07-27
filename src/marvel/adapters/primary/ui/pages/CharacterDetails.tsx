@@ -39,18 +39,21 @@ const CharacterDetails = () => {
       <Header isLoading={isLoading} countFavorites={favoriteCharacterIds.length} changeBorderBottom={true} />
       {!isError && !isLoading && characterDetails && (
         <>
-          <div className={styles.characterDetails}>
+          <div className={styles.characterDetails__banner}>
             <div className={styles["characterDetails__character-container"]}>
               <img className={styles["characterDetails__character-image"]} src={image} alt='IMAGE_HEROE' />
               <div className={styles["characterDetails__text-container"]}>
                 <div className={styles["characterDetails__text-icon-container"]}>
                   <span className={styles["characterDetails__text-name"]}>{characterDetails.character.name}</span>
-                  <div>
-                    <img src={isFavorite ? IconLikes : IconNotLikes} alt='ICON_LIKE' onClick={handleLike} />
-                  </div>
+                  <img
+                    className={styles["characterDetails__text-icon"]}
+                    src={isFavorite ? IconLikes : IconNotLikes}
+                    alt='ICON_LIKE'
+                    onClick={handleLike}
+                  />
                 </div>
                 <span className={styles["characterDetails__text-description"]}>
-                  {characterDetails.character.description}
+                  {characterDetails.character.description || "fadfsafdasfdsdfsdfasdfsadfsdf fasdfsadf dfasdf "}
                 </span>
               </div>
             </div>

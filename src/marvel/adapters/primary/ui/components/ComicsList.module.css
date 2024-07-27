@@ -100,3 +100,61 @@
   background-color: #EC1D24;
   transition: width 0.2s ease-in-out;
 }
+
+@media (max-width: 1920px) {
+  .comicList__card {
+    min-width: 168.53px;
+  }
+
+  .comicList__image {
+    min-width: 168.53px;
+    height: 252.79px;
+  }
+
+  .comicList__title {
+    font-size: 16px;
+  }
+
+  .comicList__year {
+    font-size: 12px;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .comicList__card {
+    min-width: 168.53px;
+  }
+
+  .comicList__image {
+    min-width: 168.53px;
+    height: 252.79px;
+  }
+
+  .comicList__title {
+    font-size: 15px;
+  }
+
+  .comicList__year {
+    font-size: 11.29px;
+  }
+}
+
+@media (max-width: 480px) {
+  .comicList__card {
+    min-width: 164px;
+  }
+
+  .comicList__image {
+    min-width: 164px;
+    height: 246px;
+  }
+
+  .comicList__title {
+    font-size: 16px;
+  }
+
+  .comicList__year {
+    font-size: 12px;
+  }
+}
