@@ -1,13 +1,14 @@
 # Marvel Application Test
 
 Mini web application with TypeScript, ReactJS, React Query for cache management, and responsive design.
+
 ## Features
 <dl>
   <dt>Listing top 50 characters from marvel API</dt>
   <dd>It displays the 50 first character with a filter by name</dd>
 
   <dt>Displaying characters details</dt>
-  <dd>It shows information about the character selected with 20 commics</dd>
+  <dd>It shows information about the character selected with 20 comics</dd>
 </dl>
 
 
