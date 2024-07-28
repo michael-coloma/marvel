@@ -14,7 +14,7 @@ export const generateMarvelApiUrl = ({
   withBaseURL = true,
 }: {
   path: string;
-  params: { limit: string };
+  params: { limit: string; [key: string]: string | number };
   isTest: boolean;
   withBaseURL?: boolean;
 }): string => {
