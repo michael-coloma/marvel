@@ -12,7 +12,7 @@ const CharacterCard = ({ id, imageUrl, name }: Character) => {
   const { favoriteCharacterIds, setFavoriteCharacterIds } = useContext(FavoriteCharactersContext);
   const navigate = useNavigate();
 
-  const image = useGetUrlImage(imageUrl, PORTRAIT_SIZE_IMAGE.XLARGE_150X225);
+  const image = useGetUrlImage(imageUrl, PORTRAIT_SIZE_IMAGE.UNCANNY_300X450);
 
   const isFavorite = useMemo(() => favoriteCharacterIds.includes(id), [favoriteCharacterIds, id]);
 
