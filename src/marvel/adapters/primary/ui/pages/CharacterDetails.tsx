@@ -50,7 +50,7 @@ const CharacterDetails = () => {
                   />
                 </div>
                 <span className={styles["characterDetails__text-description"]}>
-                  {characterDetails.character.description}
+                  {characterDetails.character.description || "Without description"}
                 </span>
               </div>
             </div>
