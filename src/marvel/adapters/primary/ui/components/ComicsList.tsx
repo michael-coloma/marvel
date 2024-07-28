@@ -72,17 +72,24 @@ const ComicList = ({ data: comics }: ComicListProps) => {
   return (
     <div className={styles.comicList}>
       <span className={styles["comicList___title-section"]}>COMICS</span>
-      <div className={styles.comicList__container} ref={listRef} onScroll={handleScroll}>
-        {comics.map((comic) => {
-          const yearOnsale = comic.dates.find((date) => date.type === DATE_TYPE_COMIC.ONSALE_DATE);
-          const year = yearOnsale ? new Date(yearOnsale.date).getFullYear() : "without year";
+      {comics.length > 0 && (
+        <>
+          <div className={styles.comicList__container} ref={listRef} onScroll={handleScroll}>
+            {comics.map((comic) => {
+              const yearOnsale = comic.dates.find((date) => date.type === DATE_TYPE_COMIC.ONSALE_DATE);
+              const year = yearOnsale ? new Date(yearOnsale.date).getFullYear() : "without year";
 
-          return <ComicCard key={comic.id} id={comic.id} imageUrl={comic.imageUrl} title={comic.title} year={year} />;
-        })}
-      </div>
-      <div className={styles.comicList__scrollBar}>
-        <div className={styles.comicList__scrollThumb} style={{ width: `${scrollPosition}%` }}></div>
-      </div>
+              return (
+                <ComicCard key={comic.id} id={comic.id} imageUrl={comic.imageUrl} title={comic.title} year={year} />
+              );
+            })}
+          </div>
+          <div className={styles.comicList__scrollBar}>
+            <div className={styles.comicList__scrollThumb} style={{ width: `${scrollPosition}%` }}></div>
+          </div>
+        </>
+      )}
+      {comics.length === 0 && <span>Without comics</span>}
     </div>
   );
 };
