@@ -37,6 +37,22 @@ Now you're ready to rumble!
 
 - There is a tool in React Query to check the cache in index.tsx. It has been commented out, but it can be used to view the cache.
 
+- According to the API documentation (`https://developer.marvel.com/docs#!/public/getComicsCharacterCollection_get_2`), the comics can be ordered by the following fields: focDate, onsaleDate, title, issueNumber, and modified.
+
+<select multiple="multiple" class="parameter" name="orderBy">
+        <option value="focDate">focDate</option>
+        <option value="onsaleDate">onsaleDate</option>
+        <option value="title">title</option>
+        <option value="issueNumber">issueNumber</option>
+        <option value="modified">modified</option>
+  </select>
+    
+    
+I preferred not to use this parameter in the request because I want to choose between focDate, onsaleDate, unlimitedDate, and digitalPurchaseDate. The client might need this capability in the future.
+
+The code can receive more parameters, such as orderBy, if necessary. See "src\marvel\infrastructure\api\clients\MarvelApiClient.ts"
+
+
 ## Author
 
 Michael Coloma calva
