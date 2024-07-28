@@ -53,7 +53,7 @@ const CharacterDetails = () => {
                   />
                 </div>
                 <span className={styles["characterDetails__text-description"]}>
-                  {characterDetails.character.description || "fadfsafdasfdsdfsdfasdfsadfsdf fasdfsadf dfasdf "}
+                  {characterDetails.character.description}
                 </span>
               </div>
             </div>
