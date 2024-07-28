@@ -1,7 +1,6 @@
-# Podcasts test
+# Marvel Application Test
 
-Mini application web with typescript and reactJs
-
+Mini web application with TypeScript, ReactJS, React Query for cache management, and responsive design.
 ## Features
 <dl>
   <dt>Listing top 50 characters from marvel API</dt>
@@ -27,8 +26,16 @@ Now you're ready to rumble!
 
 
 ## Documentation
-- PENDING
+- [Your app](docs/app.md): Technologies and Architecture used
+- [**Commands**](docs/commands.md): Commands for podcasts web application
+- [Styling](docs/css.md): How to work with the CSS
+- [Testing](docs/testing.md): How to work with your test.
 
+
+## Note
+- To avoid re-renders in development mode, you can comment out React.StrictMode in index.tsx. Although it is normal to wrap the app with React.StrictMode in development mode, this will result in one additional re-render.
+
+- There is a tool in React Query to check the cache in index.tsx. It has been commented out, but it can be used to view the cache.
 
 ## Author
 
