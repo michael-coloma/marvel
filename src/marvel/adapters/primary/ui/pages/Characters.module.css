@@ -34,15 +34,14 @@
 }
 
 /*Tablet: figma design is 834px but i think that is better define this sizes*/
-@media(min-width: 481px) and (max-width:1024px) {
+@media(min-width: 768px) and (max-width:1024px) {
   .characters__list {
     grid-template-columns: repeat(4, minmax(172.5px, 1fr));
   }
 }
 
 /*Mobile: Figma design = 393px but i think that it'ts better define this sizes:*/
-/* @media (max-width: 480px) { */
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .characters {
     margin-top: 16px;
     margin-left: 16px;
