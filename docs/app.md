@@ -16,6 +16,8 @@ For routing, we use [`react-router-dom`] to manage ours rutes:
 
 ## @tanStack/react-query and tanstack/react-query-persist-client
 
+React Query is used to avoid making unnecessary requests to the Marvel API and to keep the API data available for a maximum of 24 hours.
+
 - To do request via useQuery 
 - To manage the cache and enable persistence with localstorage.
 
