@@ -27,6 +27,7 @@
   scrollbar-width: none;
   /* Prevent text selection */
   user-select: none;
+  gap: 16px;
 }
 
 .comicList__container::-webkit-scrollbar {

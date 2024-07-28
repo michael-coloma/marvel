@@ -1,6 +1,5 @@
 .comicCard {
   min-width: 179.2px;
-  margin-right: 16px;
 }
 
 .comicCard__image {
@@ -18,8 +17,7 @@
   -webkit-user-drag: none;
 }
 
-.comicCard__info {
-  margin-right: 16px;
+.comicCard__info {  
   display: flex;
   flex-direction: column;
 }
@@ -54,7 +52,7 @@
     min-width: 168.53px;
   }
   .comicCard__image {
-    min-width: 168.53px;
+    width: 168.53px;
     height: 252.79px;
   }
   .comicCard__title {
@@ -71,7 +69,7 @@
     min-width: 164px;
   }
   .comicCard__image {
-    min-width: 164px;
+    width: 164px;
     height: 246px;
   }
   .comicCard__title {
