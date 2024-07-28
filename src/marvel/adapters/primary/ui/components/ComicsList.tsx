@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import { Comics, DATE_TYPE_COMIC } from "src/marvel/core/domain/entities/comics";
-import { REPLACE_SIZE_IMAGE } from "../../types/constants";
-import { PORTRAIT_SIZE } from "../../types/enums";
+import { REPLACE_SIZE_IMAGE } from "src/marvel/adapters/primary/types/constants";
+import { PORTRAIT_SIZE_IMAGE } from "src/marvel/adapters/primary/types/enums";
 
 import * as styles from "./ComicsList.module.css";
 
@@ -85,7 +85,7 @@ const ComicList = ({ data: comics }: ComicListProps) => {
           return (
             <div key={comic.id} className={styles.comicList__card}>
               <img
-                src={comic.imageUrl.replace(REPLACE_SIZE_IMAGE, PORTRAIT_SIZE.UNCANNY_300X450)}
+                src={comic.imageUrl.replace(REPLACE_SIZE_IMAGE, PORTRAIT_SIZE_IMAGE.UNCANNY_300X450)}
                 alt={comic.title}
                 className={styles.comicList__image}
                 onMouseDown={handleImageMouseDown}

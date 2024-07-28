@@ -1,4 +1,4 @@
-export enum PORTRAIT_SIZE {
+export enum PORTRAIT_SIZE_IMAGE {
   SMALL_50X75 = "portrait_small", // 50x75px
   MEDIUM_100X150 = "portrait_medium", // 100x150px
   XLARGE_150X225 = "portrait_xlarge", // 150x225px
@@ -7,7 +7,7 @@ export enum PORTRAIT_SIZE {
   INCREDIBLE_216X324 = "portrait_incredible", // 216x324px
 }
 
-export enum STANDARD_SIZE {
+export enum STANDARD_SIZE_IMAGE {
   SMALL_65X45 = "standard_small", // 65x45px
   MEDIUM_100X100 = "standard_medium", // 100x100px
   LARGE_140X140 = "standard_large", // 140x140px
@@ -16,7 +16,7 @@ export enum STANDARD_SIZE {
   AMAZING_180X180 = "standard_amazing", // 180x180px
 }
 
-export enum LANDSCAPE_SIZE {
+export enum LANDSCAPE_SIZE_IMAGE {
   SMALL_120X90 = "landscape_small", // 120x90px
   MEDIUM_175X130 = "landscape_medium", // 175x130px
   LARGE_190X140 = "landscape_large", // 190x140px

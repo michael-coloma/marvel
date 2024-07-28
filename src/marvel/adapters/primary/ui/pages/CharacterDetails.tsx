@@ -6,7 +6,7 @@ import IconLikes from "@assets/IconBigHearthLike.svg";
 import Header from "@components/Header";
 import ComicList from "@components/ComicsList";
 import { REPLACE_SIZE_IMAGE } from "src/marvel/adapters/primary/types/constants";
-import { PORTRAIT_SIZE } from "src/marvel/adapters/primary/types/enums";
+import { PORTRAIT_SIZE_IMAGE } from "src/marvel/adapters/primary/types/enums";
 import { FavoriteCharactersContext } from "src/marvel/adapters/secondary/context/FavoriteCharactersContext";
 
 import * as styles from "./CharacterDetails.module.css";
@@ -17,7 +17,7 @@ const CharacterDetails = () => {
   const { favoriteCharacterIds, setFavoriteCharacterIds } = useContext(FavoriteCharactersContext);
 
   const image = useMemo(
-    () => characterDetails?.character?.imageUrl?.replace(REPLACE_SIZE_IMAGE, PORTRAIT_SIZE.UNCANNY_300X450),
+    () => characterDetails?.character?.imageUrl?.replace(REPLACE_SIZE_IMAGE, PORTRAIT_SIZE_IMAGE.UNCANNY_300X450),
     [characterDetails?.character.imageUrl],
   );
 
