@@ -1,7 +1,6 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import { Comics, DATE_TYPE_COMIC } from "src/marvel/core/domain/entities/comics";
-import { REPLACE_SIZE_IMAGE } from "src/marvel/adapters/primary/types/constants";
-import { PORTRAIT_SIZE_IMAGE } from "src/marvel/adapters/primary/types/enums";
+import ComicCard from "./ComicCard";
 
 import * as styles from "./ComicsList.module.css";
 
@@ -70,10 +69,6 @@ const ComicList = ({ data: comics }: ComicListProps) => {
     }
   }, [listRef]);
 
-  const handleImageMouseDown = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
-    e.stopPropagation();
-  };
-
   return (
     <div className={styles.comicList}>
       <span className={styles["comicList___title-section"]}>COMICS</span>
@@ -82,20 +77,7 @@ const ComicList = ({ data: comics }: ComicListProps) => {
           const yearOnsale = comic.dates.find((date) => date.type === DATE_TYPE_COMIC.ONSALE_DATE);
           const year = yearOnsale ? new Date(yearOnsale.date).getFullYear() : "without year";
 
-          return (
-            <div key={comic.id} className={styles.comicList__card}>
-              <img
-                src={comic.imageUrl.replace(REPLACE_SIZE_IMAGE, PORTRAIT_SIZE_IMAGE.UNCANNY_300X450)}
-                alt={comic.title}
-                className={styles.comicList__image}
-                onMouseDown={handleImageMouseDown}
-              />
-              <div className={styles.comicList__info}>
-                <span className={styles.comicList__title}>{comic.title}</span>
-                <span className={styles.comicList__year}>{year}</span>
-              </div>
-            </div>
-          );
+          return <ComicCard key={comic.id} id={comic.id} imageUrl={comic.imageUrl} title={comic.title} year={year} />;
         })}
       </div>
       <div className={styles.comicList__scrollBar}>
