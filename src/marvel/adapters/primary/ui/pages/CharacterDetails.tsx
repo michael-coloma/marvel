@@ -35,13 +35,13 @@ const CharacterDetails = () => {
     <>
       <Header isLoading={isLoading} countFavorites={favoriteCharacterIds.length} changeBorderBottom={true} />
       {!isError && !isLoading && characterDetails && (
-        <>
+        <div className={styles.characterDetails}>
           <div className={styles.characterDetails__banner}>
             <div className={styles["characterDetails__character-container"]}>
               <img className={styles["characterDetails__character-image"]} src={image} alt='IMAGE_HEROE' />
               <div className={styles["characterDetails__text-container"]}>
                 <div className={styles["characterDetails__text-icon-container"]}>
-                  <span className={styles["characterDetails__text-name"]}>{characterDetails.character.name}</span>
+                  <span className={styles["characterDetails__text-name"]}>{characterDetails?.character.name}</span>
                   <img
                     className={styles["characterDetails__text-icon"]}
                     src={isFavorite ? IconLikes : IconNotLikes}
@@ -50,7 +50,7 @@ const CharacterDetails = () => {
                   />
                 </div>
                 <span className={styles["characterDetails__text-description"]}>
-                  {characterDetails.character.description || "Without description"}
+                  {characterDetails?.character.description || "Without description"}
                 </span>
               </div>
             </div>
@@ -59,7 +59,7 @@ const CharacterDetails = () => {
           <div className={styles["characterDetails__comics-container"]}>
             <ComicList data={characterDetails?.comics || []} />
           </div>
-        </>
+        </div>
       )}
 
       {isError && <>Error: {error instanceof Error ? error.message : "An error occurred"}</>}

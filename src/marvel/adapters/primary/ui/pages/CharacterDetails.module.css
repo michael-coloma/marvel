@@ -1,3 +1,16 @@
+.characterDetails{
+  opacity: 0;
+  transform: translateY(-100px);
+  animation: slideDown 0.5s ease-out forwards;
+}
+
+@keyframes slideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .characterDetails__banner {
   display: flex;
   background-color: black;
