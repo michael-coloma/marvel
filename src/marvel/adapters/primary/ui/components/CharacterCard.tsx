@@ -1,10 +1,10 @@
-import React, { useCallback, useContext, useLayoutEffect, useMemo, useState } from "react";
+import React, { useCallback, useContext, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { Character } from "src/marvel/core/domain/entities/character";
 import { PORTRAIT_SIZE_IMAGE } from "src/marvel/adapters/primary/types/enums";
-import { REPLACE_SIZE_IMAGE } from "src/marvel/adapters/primary/types/constants";
 import { FavoriteCharactersContext } from "src/marvel/adapters/secondary/context/FavoriteCharactersContext";
 import LazyLoad from "react-lazyload";
+import { useGetUrlImage } from "../hooks/useGetUrlImage";
 
 import * as styles from "./CharacterCard.module.css";
 
@@ -12,39 +12,7 @@ const CharacterCard = ({ id, imageUrl, name }: Character) => {
   const { favoriteCharacterIds, setFavoriteCharacterIds } = useContext(FavoriteCharactersContext);
   const navigate = useNavigate();
 
-  const imageDefault = useMemo(
-    () => imageUrl?.replace(REPLACE_SIZE_IMAGE, PORTRAIT_SIZE_IMAGE.MEDIUM_100X150),
-    [imageUrl],
-  );
-
-  const [image, setImage] = useState<string>(imageDefault);
-  useLayoutEffect(() => {
-    const handleResizeImage = () => {
-      const width = window.innerWidth;
-      let newImage;
-      if (width < 576) {
-        newImage = imageUrl?.replace(REPLACE_SIZE_IMAGE, PORTRAIT_SIZE_IMAGE.XLARGE_150X225);
-      } else if (width < 768) {
-        newImage = imageDefault;
-      } else if (width < 992) {
-        newImage = imageUrl?.replace(REPLACE_SIZE_IMAGE, PORTRAIT_SIZE_IMAGE.XLARGE_150X225);
-      } else if (width < 1200) {
-        newImage = imageUrl?.replace(REPLACE_SIZE_IMAGE, PORTRAIT_SIZE_IMAGE.FANTASTIC_168X252);
-      } else if (width < 1400) {
-        newImage = imageUrl?.replace(REPLACE_SIZE_IMAGE, PORTRAIT_SIZE_IMAGE.INCREDIBLE_216X324);
-      } else {
-        newImage = imageUrl?.replace(REPLACE_SIZE_IMAGE, PORTRAIT_SIZE_IMAGE.UNCANNY_300X450);
-      }
-
-      setImage((prevImage) => (prevImage !== newImage ? newImage : prevImage));
-    };
-
-    handleResizeImage();
-
-    window.addEventListener("resize", handleResizeImage);
-
-    return () => window.removeEventListener("resize", handleResizeImage);
-  }, [imageDefault, imageUrl]);
+  const image = useGetUrlImage(imageUrl, PORTRAIT_SIZE_IMAGE.XLARGE_150X225);
 
   const isFavorite = useMemo(() => favoriteCharacterIds.includes(id), [favoriteCharacterIds, id]);
 
